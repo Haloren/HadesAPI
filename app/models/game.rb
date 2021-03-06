@@ -1,3 +1,5 @@
 class Game < ApplicationRecord
-  belongs_to :user
+  has_many :checklists
+
+  validates :name, presence: true
 end
