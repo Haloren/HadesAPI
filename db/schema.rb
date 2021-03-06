@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_000420) do
     t.string "title"
     t.boolean "complete"
     t.string "reward"
+    t.integer "qty"
     t.string "reveal"
     t.integer "game_id", null: false
     t.datetime "created_at", precision: 6, null: false

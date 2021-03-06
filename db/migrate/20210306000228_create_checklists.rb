@@ -4,6 +4,7 @@ class CreateChecklists < ActiveRecord::Migration[6.0]
       t.string :title
       t.boolean :complete
       t.string :reward
+      t.integer :qty
       t.string :reveal
       t.belongs_to :game, null: false, foreign_key: true
 
