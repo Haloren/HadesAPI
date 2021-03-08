@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  complete: false
+  reward: MyString
+  qty: 1
+
+two:
+  complete: false
+  reward: MyString
+  qty: 1
