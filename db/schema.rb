@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_232509) do
+ActiveRecord::Schema.define(version: 2021_03_09_053208) do
 
   create_table "checklists", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_03_08_232509) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "objective_completes", force: :cascade do |t|
+    t.integer "game_id_id", null: false
+    t.integer "objective_id_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id_id"], name: "index_objective_completes_on_game_id_id"
+    t.index ["objective_id_id"], name: "index_objective_completes_on_objective_id_id"
+  end
+
   create_table "objectives", force: :cascade do |t|
     t.string "task"
     t.boolean "complete", default: false
@@ -50,5 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_232509) do
 
   add_foreign_key "checklists", "games"
   add_foreign_key "games", "users"
+  add_foreign_key "objective_completes", "game_ids"
+  add_foreign_key "objective_completes", "objective_ids"
   add_foreign_key "objectives", "checklists"
 end
