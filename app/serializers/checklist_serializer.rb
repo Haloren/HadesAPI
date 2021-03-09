@@ -1,3 +1,3 @@
 class ChecklistSerializer < ActiveModel::Serializer
-  attributes :id, :complete
+  attributes :id, :title, :complete, :reveal, :game_id
 end
