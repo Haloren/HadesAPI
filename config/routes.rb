@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :objective_completes
   resources :users do
     resources :games do
-      resources :game_objectives
-      resources :objectives
-      resources :checklists
+      resources :checklists do
+        resources :objectives
+      end
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

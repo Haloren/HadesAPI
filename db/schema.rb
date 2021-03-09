@@ -10,31 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_232702) do
+ActiveRecord::Schema.define(version: 2021_03_08_232509) do
 
   create_table "checklists", force: :cascade do |t|
     t.string "title"
-    t.boolean "complete", null: false
+    t.boolean "complete", default: false
     t.string "reveal"
+    t.string "reward"
+    t.integer "qty"
     t.integer "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_checklists_on_game_id"
   end
 
-  create_table "game_objectives", force: :cascade do |t|
-    t.integer "game_id", null: false
-    t.integer "objective_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_game_objectives_on_game_id"
-    t.index ["objective_id"], name: "index_game_objectives_on_objective_id"
-  end
-
   create_table "games", force: :cascade do |t|
     t.integer "prophecies"
     t.datetime "updated"
-    t.integer "user_id", null: false
+    t.integer "user_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_games_on_user_id"
@@ -42,9 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_232702) do
 
   create_table "objectives", force: :cascade do |t|
     t.string "task"
-    t.boolean "complete", null: false
-    t.string "reward"
-    t.integer "qty"
+    t.boolean "complete", default: false
     t.integer "checklist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,8 +49,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_232702) do
   end
 
   add_foreign_key "checklists", "games"
-  add_foreign_key "game_objectives", "games"
-  add_foreign_key "game_objectives", "objectives"
   add_foreign_key "games", "users"
   add_foreign_key "objectives", "checklists"
 end

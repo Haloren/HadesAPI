@@ -1,2 +1,0 @@
-class GameObjectivesController < ApplicationController
-end

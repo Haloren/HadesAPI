@@ -1,3 +1,5 @@
 class ObjectiveSerializer < ActiveModel::Serializer
-  attributes :id, :task, :complete, :reward, :qty, :checklist_id
+  attributes :id, :task, :complete, :checklist_id
+
+  has_one :checklist
 end

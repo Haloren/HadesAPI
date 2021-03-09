@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.integer :prophecies
       t.datetime :updated
 
-      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :user, default: false, foreign_key: true
       t.timestamps
     end
   end

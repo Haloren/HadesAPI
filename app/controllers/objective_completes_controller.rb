@@ -1,0 +1,2 @@
+class ObjectiveCompletesController < ApplicationController
+end
