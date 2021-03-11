@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2021_03_09_053208) do
   end
 
   create_table "objective_completes", force: :cascade do |t|
-    t.integer "game_id_id", null: false
-    t.integer "objective_id_id", null: false
+    t.integer "game_id", null: false
+    t.integer "objective_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id_id"], name: "index_objective_completes_on_game_id_id"
-    t.index ["objective_id_id"], name: "index_objective_completes_on_objective_id_id"
+    t.index ["game_id"], name: "index_objective_completes_on_game_id"
+    t.index ["objective_id"], name: "index_objective_completes_on_objective_id"
   end
 
   create_table "objectives", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_053208) do
 
   add_foreign_key "checklists", "games"
   add_foreign_key "games", "users"
-  add_foreign_key "objective_completes", "game_ids"
-  add_foreign_key "objective_completes", "objective_ids"
+  add_foreign_key "objective_completes", "games"
+  add_foreign_key "objective_completes", "objectives"
   add_foreign_key "objectives", "checklists"
 end

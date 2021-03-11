@@ -1,5 +1,5 @@
 class ObjectiveCompleteSerializer < ActiveModel::Serializer
   attributes :id
-  has_one :game_id
-  has_one :objective_id
+  belongs_to :game_id
+  belongs_to :objective_id
 end
